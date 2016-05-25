@@ -12,6 +12,7 @@
  */
 
 import React from 'react';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 /* eslint-disable react/prefer-stateless-function */
 export default class App extends React.Component {
@@ -22,9 +23,9 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <div>
+      <MuiThemeProvider>
         {this.props.children}
-      </div>
+      </MuiThemeProvider>
     );
   }
 }
