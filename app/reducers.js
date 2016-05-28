@@ -35,12 +35,38 @@ function routeReducer(state = routeInitialState, action) {
   }
 }
 
+const appInitialState = fromJS({
+  drawerOpen: false,
+  searchOpen: false
+});
+
+export const OPEN_DRAWER = 'OPEN_DRAWER';
+export const CLOSE_DRAWER = 'CLOSE_DRAWER';
+export const OPEN_SEARCH = 'OPEN_SEARCH';
+export const CLOSE_SEARCH = 'CLOSE_SEARCH';
+
+function appReducer (state = appInitialState, action) {
+  switch (action.type) {
+    case OPEN_DRAWER:
+      return {...state, drawerOpen: true};
+    case CLOSE_DRAWER:
+      return {...state, drawerOpen: false};
+    case OPEN_SEARCH:
+      return {...state, searchOpen: true};
+    case CLOSE_SEARCH:
+      return {...state, searchOpen: false};
+    default:
+      return state;
+  }
+}
+
 /**
  * Creates the main reducer with the asynchronously loaded ones
  */
 export default function createReducer(asyncReducers) {
   return combineReducers({
     route: routeReducer,
+    app: appReducer,
     ...asyncReducers,
   });
 }
