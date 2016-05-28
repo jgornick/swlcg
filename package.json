@@ -47,6 +47,9 @@
       "stage-0"
     ],
     "env": {
+      "development": {
+        "plugins": ["transform-object-rest-spread"]
+      },
       "production": {
         "only": [
           "app"
@@ -177,6 +180,7 @@
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.4",
     "babel-plugin-react-transform": "^2.0.2",
+    "babel-plugin-transform-object-rest-spread": "^6.8.0",
     "babel-plugin-transform-react-constant-elements": "^6.8.0",
     "babel-plugin-transform-react-inline-elements": "^6.8.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.2.7",
