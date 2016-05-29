@@ -15,9 +15,14 @@ function NavBar({ searchOpen, toggleSearch }) {
     <AppBar
       className={searchOpen ? styles.navBarSearchOpen : styles.navBarSearchClosed}
       title="SWLCG"
-      iconElementRight={<NavSearch searchOpen={searchOpen} toggleSearch={toggleSearch}/>}
+      iconElementRight={<NavSearch toggleSearch={toggleSearch} />}
     />
   );
 }
+
+NavBar.propTypes = {
+  searchOpen: React.PropTypes.boolean,
+  toggleSearch: React.PropTypes.func,
+};
 
 export default NavBar;

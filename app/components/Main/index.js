@@ -15,7 +15,9 @@ function Main({ children, drawerOpen, searchOpen, toggleDrawer, toggleSearch }) 
     <MuiThemeProvider muiTheme={getMuiTheme()}>
       <div>
         <NavBar
+          drawerOpen={drawerOpen}
           searchOpen={searchOpen}
+          toggleDrawer={toggleDrawer}
           toggleSearch={toggleSearch}
         />
         {children}
@@ -23,5 +25,13 @@ function Main({ children, drawerOpen, searchOpen, toggleDrawer, toggleSearch }) 
     </MuiThemeProvider>
   );
 }
+
+Main.propTypes = {
+  children: React.PropTypes.node,
+  drawerOpen: React.PropTypes.boolean,
+  searchOpen: React.PropTypes.boolean,
+  toggleDrawer: React.PropTypes.func,
+  toggleSearch: React.PropTypes.func,
+};
 
 export default Main;
