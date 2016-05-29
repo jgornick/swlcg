@@ -11,10 +11,10 @@ import TextField from 'material-ui/TextField';
 
 import styles from './styles.css';
 
-function NavSearch({ toggleSearch }) {
+function NavSearch({ handleClick }) {
   return (
     <div className={styles.navSearch}>
-      <IconButton onClick={toggleSearch}><Search color="#fff" /></IconButton>
+      <IconButton onClick={handleClick}><Search color="#fff" /></IconButton>
       <TextField
         id="navSearchField"
         className={styles.searchField}
@@ -25,7 +25,7 @@ function NavSearch({ toggleSearch }) {
 }
 
 NavSearch.propTypes = {
-  toggleSearch: React.PropTypes.func,
+  handleClick: React.PropTypes.func,
 };
 
 export default NavSearch;

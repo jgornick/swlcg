@@ -1,12 +1,13 @@
 .navSearch {
   display: flex;
 }
+
 .searchField {
   width: calc(100% - 50px) !important;
 }
 
 .searchField > input {
-  background-color: #fff !important;
+  background-color: #FFF !important;
   border-radius: 2px;
   padding: 1rem !important;
 }
