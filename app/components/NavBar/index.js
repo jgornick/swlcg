@@ -21,7 +21,7 @@ function NavBar({ searchOpen, toggleSearch }) {
 }
 
 NavBar.propTypes = {
-  searchOpen: React.PropTypes.boolean,
+  searchOpen: React.PropTypes.bool,
   toggleSearch: React.PropTypes.func,
 };
 

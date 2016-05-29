@@ -27,8 +27,8 @@ function Main({ children, drawerOpen, searchOpen, toggleDrawer, toggleSearch }) 
 
 Main.propTypes = {
   children: React.PropTypes.node,
-  drawerOpen: React.PropTypes.boolean,
-  searchOpen: React.PropTypes.boolean,
+  drawerOpen: React.PropTypes.bool,
+  searchOpen: React.PropTypes.bool,
   toggleDrawer: React.PropTypes.func,
   toggleSearch: React.PropTypes.func,
 };
