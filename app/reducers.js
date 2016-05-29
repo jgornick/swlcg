@@ -6,6 +6,7 @@
 import { combineReducers } from 'redux-immutable';
 import { fromJS } from 'immutable';
 import { LOCATION_CHANGE } from 'react-router-redux';
+import globalReducer from './containers/App/reducer';
 
 /*
  * routeReducer
@@ -35,35 +36,13 @@ function routeReducer(state = routeInitialState, action) {
   }
 }
 
-import { OPEN_DRAWER, CLOSE_DRAWER, OPEN_SEARCH, CLOSE_SEARCH } from './actions';
-
-const appInitialState = fromJS({
-  drawerOpen: false,
-  searchOpen: false,
-});
-
-function appReducer(state = appInitialState, action) {
-  switch (action.type) {
-    case OPEN_DRAWER:
-      return { ...state, drawerOpen: true };
-    case CLOSE_DRAWER:
-      return { ...state, drawerOpen: false };
-    case OPEN_SEARCH:
-      return { ...state, searchOpen: true };
-    case CLOSE_SEARCH:
-      return { ...state, searchOpen: false };
-    default:
-      return state;
-  }
-}
-
 /**
  * Creates the main reducer with the asynchronously loaded ones
  */
 export default function createReducer(asyncReducers) {
   return combineReducers({
     route: routeReducer,
-    app: appReducer,
+    global: globalReducer,
     ...asyncReducers,
   });
 }
