@@ -15,7 +15,7 @@ function NavBar({ searchOpen, toggleSearch }) {
     <AppBar
       className={searchOpen ? styles.navBarSearchOpen : styles.navBarSearchClosed}
       title="SWLCG"
-      iconElementRight={<NavSearch toggleSearch={toggleSearch} />}
+      iconElementRight={<NavSearch handleClick={toggleSearch} />}
     />
   );
 }
