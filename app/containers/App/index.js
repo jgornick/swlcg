@@ -2,30 +2,24 @@
  *
  * App.react.js
  *
- * This component is the skeleton around the actual pages, and should only
- * contain code that should be seen on all pages. (e.g. navigation bar)
- *
- * NOTE: while this component should technically be a stateless functional
- * component (SFC), hot reloading does not currently support SFCs. If hot
- * reloading is not a neccessity for you then you can refactor it and remove
- * the linting exception.
  */
 
-import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import { connect } from 'react-redux';
+import { createSelector } from 'reselect';
+import { selectDrawerOpen, selectSearchOpen } from './selectors';
+import { toggleDrawer, toggleSearch } from './actions';
+import Main from '../../components/Main/index';
 
-/* eslint-disable react/prefer-stateless-function */
-export default class App extends React.Component {
-
-  static propTypes = {
-    children: React.PropTypes.node,
+function mapDispatchToProps(dispatch) {
+  return {
+    toggleSearch: () => dispatch(toggleSearch()),
+    toggleDrawer: () => dispatch(toggleDrawer()),
+    dispatch,
   };
-
-  render() {
-    return (
-      <MuiThemeProvider>
-        {this.props.children}
-      </MuiThemeProvider>
-    );
-  }
 }
+
+export default connect(createSelector(
+  selectDrawerOpen(),
+  selectSearchOpen(),
+  (drawerOpen, searchOpen) => ({ drawerOpen, searchOpen })
+), mapDispatchToProps)(Main);

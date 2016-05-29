@@ -1,0 +1,9 @@
+.navBarSearchClosed > div {
+  overflow: hidden;
+  width: 48px;
+}
+
+.navBarSearchOpen > div {
+  overflow: hidden;
+  width: 400px;
+}
