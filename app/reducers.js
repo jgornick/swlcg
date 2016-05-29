@@ -35,26 +35,23 @@ function routeReducer(state = routeInitialState, action) {
   }
 }
 
+import { OPEN_DRAWER, CLOSE_DRAWER, OPEN_SEARCH, CLOSE_SEARCH } from './actions';
+
 const appInitialState = fromJS({
   drawerOpen: false,
-  searchOpen: false
+  searchOpen: false,
 });
 
-export const OPEN_DRAWER = 'OPEN_DRAWER';
-export const CLOSE_DRAWER = 'CLOSE_DRAWER';
-export const OPEN_SEARCH = 'OPEN_SEARCH';
-export const CLOSE_SEARCH = 'CLOSE_SEARCH';
-
-function appReducer (state = appInitialState, action) {
+function appReducer(state = appInitialState, action) {
   switch (action.type) {
     case OPEN_DRAWER:
-      return {...state, drawerOpen: true};
+      return { ...state, drawerOpen: true };
     case CLOSE_DRAWER:
-      return {...state, drawerOpen: false};
+      return { ...state, drawerOpen: false };
     case OPEN_SEARCH:
-      return {...state, searchOpen: true};
+      return { ...state, searchOpen: true };
     case CLOSE_SEARCH:
-      return {...state, searchOpen: false};
+      return { ...state, searchOpen: false };
     default:
       return state;
   }
