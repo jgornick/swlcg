@@ -63,6 +63,12 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
+// Set up the API Endopoint
+import { setEndpointHost, setEndpointPath, readEndpoint } from 'redux-json-api';
+store.dispatch(setEndpointHost('http://api.swlcg.xyz'));
+store.dispatch(setEndpointPath(''));
+readEndpoint('objective-sets')(store.dispatch, () => ({ api: store.getState().get('api') }));
+
 ReactDOM.render(
   <Provider store={store}>
     <Router
