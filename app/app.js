@@ -63,6 +63,15 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
+// Set up the API Endopoint
+import { setEndpointHost, setEndpointPath, readEndpoint } from 'redux-json-api';
+import { ENDPOINT_HOST, ENDPOINT_PATH, API_ENDPOINTS } from './constants';
+store.dispatch(setEndpointHost(ENDPOINT_HOST));
+store.dispatch(setEndpointPath(ENDPOINT_PATH));
+API_ENDPOINTS.forEach(endpoint => {
+  readEndpoint(endpoint)(store.dispatch, () => ({ api: store.getState().get('api') }));
+});
+
 ReactDOM.render(
   <Provider store={store}>
     <Router
