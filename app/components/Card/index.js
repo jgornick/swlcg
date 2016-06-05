@@ -47,8 +47,8 @@ function Card({
         <section className="card-type">{type}</section>
         <div className={`${affiliation.replace(' ', '-')} ${side}`.toLowerCase()} />
         <div className="cost">{cost}</div>
-        <div className="damageCapacity">{damageCapacity}</div>
-        <div className="forceIcons">{forceIcons}</div>
+        <div className="damage-capacity">{damageCapacity}</div>
+        <div className="force-icons">{forceIcons}</div>
       </aside>
     </article>
   );
