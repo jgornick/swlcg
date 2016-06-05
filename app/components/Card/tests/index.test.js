@@ -93,14 +93,14 @@ describe('<Card />', () => {
   });
 
   it('renders an affiliation/side icon', () => {
-    const affiliation = 'Sith';
-    const side = 'Dark';
+    const affiliation = 'Rebel Alliance';
+    const side = 'Light';
     const renderedComponent = shallow(
       <Card title="" affiliation={affiliation} side={side} />
     );
     expect(
       renderedComponent.contains(
-        <div className={`${affiliation} ${side}`.toLowerCase()} />
+        <div className={`${affiliation.replace(' ', '-')} ${side}`.toLowerCase()} />
       )
     ).toEqual(true);
   });
