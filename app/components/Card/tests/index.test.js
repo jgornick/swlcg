@@ -70,17 +70,74 @@ describe('<Card />', () => {
     ).toEqual(true);
   });
 
-  it('renders text');
+  it('renders text', () => {
+    const text = 'While this unit is undamaged, it cannot be targeted by enemy card efects.';
+    const renderedComponent = shallow(
+      <Card title="" text={text} />
+    );
+    expect(
+      renderedComponent.contains(text)
+    ).toEqual(true);
+  });
 
-  it('renders objective sets');
+  it('renders objective sets'); // TODO
 
-  it('renders a card type');
+  it('renders a card type', () => {
+    const type = 'Unit';
+    const renderedComponent = shallow(
+      <Card title="" type={type} />
+    );
+    expect(
+      renderedComponent.contains(type)
+    ).toEqual(true);
+  });
 
-  it('renders an affiliaction icon');
+  it('renders an affiliation/side icon', () => {
+    const affiliation = 'Sith';
+    const side = 'Dark';
+    const renderedComponent = shallow(
+      <Card title="" affiliation={affiliation} side={side} />
+    );
+    expect(
+      renderedComponent.contains(
+        <div className={`${affiliation} ${side}`.toLowerCase()} />
+      )
+    ).toEqual(true);
+  });
 
-  it('renders a cost');
+  it('renders a cost', () => {
+    const cost = 8;
+    const renderedComponent = shallow(
+      <Card title="" cost={cost} />
+    );
+    expect(
+      renderedComponent.contains(
+        <div className="cost">{cost}</div>
+      )
+    ).toEqual(true);
+  });
 
-  it('renders a damage capacity');
+  it('renders a damage capacity', () => {
+    const damageCapacity = 10;
+    const renderedComponent = shallow(
+      <Card title="" damageCapacity={damageCapacity} />
+    );
+    expect(
+      renderedComponent.contains(
+        <div className="damageCapacity">{damageCapacity}</div>
+      )
+    ).toEqual(true);
+  });
 
-  it('renders force icons');
+  it('renders force icons', () => {
+    const forceIcons = 3;
+    const renderedComponent = shallow(
+      <Card title="" forceIcons={forceIcons} />
+    );
+    expect(
+      renderedComponent.contains(
+        <div className="forceIcons">{forceIcons}</div>
+      )
+    ).toEqual(true);
+  });
 });

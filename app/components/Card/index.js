@@ -18,6 +18,13 @@ function Card({
   edgeEnabledUnitDamage,
   edgeEnabledBlastDamage,
   edgeEnabledTactics,
+  text,
+  type,
+  affiliation,
+  side,
+  cost,
+  damageCapacity,
+  forceIcons,
 }) {
   return (
     <article className={styles.card}>
@@ -33,6 +40,16 @@ function Card({
         {[...Array(edgeEnabledBlastDamage)].map((x, index) => <div key={index} className="edge-enabled-blast-damage-icon" />)}
         {[...Array(edgeEnabledTactics)].map((x, index) => <div key={index} className="edge-enabled-tactics-icon" />)}
       </section>
+      <section className="text">
+        {text}
+      </section>
+      <aside>
+        <section className="card-type">{type}</section>
+        <div className={`${affiliation} ${side}`.toLowerCase()} />
+        <div className="cost">{cost}</div>
+        <div className="damageCapacity">{damageCapacity}</div>
+        <div className="forceIcons">{forceIcons}</div>
+      </aside>
     </article>
   );
 }
@@ -47,6 +64,13 @@ Card.propTypes = {
   edgeEnabledUnitDamage: React.PropTypes.number,
   edgeEnabledBlastDamage: React.PropTypes.number,
   edgeEnabledTactics: React.PropTypes.number,
+  text: React.PropTypes.string,
+  type: React.PropTypes.string,
+  affiliation: React.PropTypes.string,
+  side: React.PropTypes.string,
+  cost: React.PropTypes.number,
+  damageCapacity: React.PropTypes.number,
+  forceIcons: React.PropTypes.forceIcons,
 };
 
 Card.defaultProps = {
@@ -58,6 +82,9 @@ Card.defaultProps = {
   edgeEnabledUnitDamage: 0,
   edgeEnabledBlastDamage: 0,
   edgeEnabledTactics: 0,
+  text: '',
+  affiliation: 'Neutral',
+  side: 'Light',
 };
 
 export default Card;
